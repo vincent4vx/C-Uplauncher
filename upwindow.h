@@ -20,8 +20,8 @@ private:
     
 signals:
     
-public slots:
-    
+private slots:
+    void goToWebSite();
 };
 
 #endif // UPWINDOW_H

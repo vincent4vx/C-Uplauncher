@@ -1,6 +1,5 @@
 #include <QApplication>
-#include "upwindow.h"
-#include <QString>
+#include "uplauncher.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,8 +7,7 @@ int main(int argc, char *argv[])
 
     a.setStyleSheet("QScrollArea QLabel{padding: 3px;}QScrollArea QLabel:hover{background: #EEE;width: 100%;}");
     
-    UpWindow *_win = new UpWindow;
-    _win->show();
+    Uplauncher *up = new Uplauncher;
 
     return a.exec();
 }

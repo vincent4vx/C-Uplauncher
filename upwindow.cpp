@@ -1,9 +1,7 @@
 #include "upwindow.h"
 #include "newsview.h"
 
-UpWindow::UpWindow(QWidget *parent) :
-    QMainWindow(parent)
-{
+UpWindow::UpWindow(QWidget *parent) : QMainWindow(parent){
     setWindowTitle("Uplauncher");
     setFixedSize(500, 250);
 
@@ -39,8 +37,19 @@ void UpWindow::initMenuBar(){
     setMenuBar(menuBar);
 
     QMenu *fichier = menuBar->addMenu("&Fichier");
+    QMenu *navigation = menuBar->addMenu("&Navigation");
 
     QAction *quit = fichier->addAction("&Quitter");
+    QAction *site = navigation->addAction("Allez sur le site &Web");
 
+    //quit
     connect(quit, SIGNAL(triggered()), QApplication::instance(), SLOT(quit()));
+    //go to web site
+    connect(site, SIGNAL(triggered()), this, SLOT(goToWebSite()));
+}
+
+// SLOTS
+
+void UpWindow::goToWebSite(){
+    QDesktopServices::openUrl(QUrl("http://monsite.fr/"));
 }
